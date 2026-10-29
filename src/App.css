@@ -1,0 +1,655 @@
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    background-color: #f1f3f5;
+    border-radius: 16px;
+    padding: 12px 16px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+}
+
+.pharmacist-button {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    background-color: #dbeafe;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.notification-button {
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    position: relative;
+}
+
+.notification-button::after{
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.profile-button svg {
+    color: white;
+    background-color: #006b62;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.dashboard-page {
+    padding: 15px;
+    font-family: arial, sans-serif;
+    padding-left: 10px;
+    font-size: smaller;
+    padding-top: 8px;
+
+
+} 
+
+.dashboard-page h1 {
+    color: #302746;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.card-value {
+    margin: 0;
+    font-size: 32px;
+}
+
+.card-description {
+    margin: 0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    background-color: #e8f3ef;
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background-color: #e0e7ff;
+}
+
+.card-icon--blue {
+    background-color: #dbe4ff;
+    color: blue;
+
+}
+
+.card-icon--red {
+    background-color: #dbe4ff;
+    color: red;
+}
+
+.card-icon--gray {
+    background-color: #dbe4ff;
+    color: gray;
+}
+
+.card-icon--teal {
+    background-color: #dbe4ff;
+    color: teal;
+}
+
+.len-tete {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.len-tete h6 {
+    color: red;
+    background-color: rgb(239, 149, 167);
+    padding: 5px 11px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0;
+}
+
+.card-alert {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.Tableau-medicament table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Tableau-medicament th {
+    padding: 12px;
+    color: rgb(118, 117, 117);
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.Tableau-medicament td {
+    padding: 10px;
+
+}
+
+.badge-urgent {
+    color: red;
+    background-color: #fde8e8;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.badge-fefo {
+    color: #006b62;
+    background-color: #d9f7f4;
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+.card-alert-link {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 41%;
+
+}
+
+.card-alert-link a {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.len-tete h3 {
+    margin: 0;
+}
+
+.card-alert {
+    margin-top: 24px;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+
+}
+
+.Card {
+    display: flex;
+    gap: 20px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.link-card-fefo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 93px;
+
+}
+
+.Tableau-fefo th{
+    padding: 18px;
+}
+
+.Tableau-fefo td {
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-fofe {
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+.link-card-fefo {
+    padding-inline: 10px;
+}
+
+.fefo-barre-fond {
+    background-color: rgb(200, 198, 198);
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+}
+
+.fefo-barre-remplie {
+    background-color: rgb(122, 225, 19);
+    height: 8px;
+    border-radius: 10px;
+    width: 70%;
+
+}
+
+.traiter-vente {
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+.h2 {
+    text-align: center;
+    color: black;
+    font-size: small;
+}
+
+.nouvelle-vente {
+    background-color: rgb(96, 207, 129);
+    padding: 14px;
+    border-radius: 13px;
+    box-shadow: 0 4px 16px rgba(19, 215, 48, 0.08);
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tableau-traitement-vente table{
+    width: 100%;
+     border-collapse: collapse;
+}
+
+.tableau-traitement-vente th {
+    padding: 12px;
+}
+
+.tableau-traitement-vente td {
+    padding: 10px;
+}
+
+.bat-y {
+    text-align: center;
+}
+
+.card-traitement-vente {
+    text-align: right;
+}
+
+.tableau-traitement-vente tbody td {
+    padding-left: 20px;
+}
+
+
+.tableau-traitement-vente thead{
+    border-bottom: 1px solid rgb(162, 157, 157);
+}
+
+
+.card-Commandes {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(48, 39, 70, 0.08);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin-top: 25px;
+    border: 1px solid #eeeaf3;
+    overflow: hidden;
+}
+
+/* Titre de la carte */
+.card-Commandes .tit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card-Commandes .tit h3 {
+    color: #302746;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-Commandes .tit h4 {
+    color: #6b617b;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Tableau */
+.card-Commandes table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+/* En-tête du tableau */
+.card-Commandes th {
+    background-color: #f7f5fa;
+    color: #6b617b;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid #e9e5ef;
+}
+
+/* Cellules */
+.card-Commandes td {
+    color: #40384f;
+    padding: 14px 8px;
+    border-bottom: 1px solid #f0edf4;
+}
+
+/* Effet au passage de la souris */
+.card-Commandes tbody tr:hover {
+    background-color: #faf9fc;
+}
+
+/* Colonne Total */
+.card-Commandes th:last-child,
+.card-Commandes td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Lien en bas de la carte */
+.card-Commandes a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #6c4ccf;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.card-Commandes a:hover {
+    color: #49309c;
+    text-decoration: underline;
+}
+
+
+
+/* Carte principale */
+.traiter-vente {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #eeeaf3;
+    box-shadow: 0 4px 16px rgba(48, 39, 70, 0.07);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+/* En-tête et titre */
+.traiter-vente .h2 {
+    margin-bottom: 20px;
+}
+
+.traiter-vente .h2 h2 {
+    color: #302746;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Bouton Nouvelle Vente */
+.nouvelle-vente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    background-color: #6c4ccf;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.nouvelle-vente:hover {
+    background-color: #5638b5;
+    transform: translateY(-1px);
+}
+
+.nouvelle-vente:active {
+    transform: translateY(0);
+}
+
+/* Conteneur du tableau */
+.tableau-traitement-vente {
+    width: 100%;
+}
+
+/* Tableau */
+.tableau-traitement-vente table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* En-tête du tableau */
+.tableau-traitement-vente thead {
+    background-color: #f7f5fb;
+}
+
+.tableau-traitement-vente th {
+    color: #6b617b;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    padding: 13px 10px;
+    border-bottom: 1px solid #e9e5ef;
+}
+
+/* Cellules */
+.tableau-traitement-vente td {
+    color: #40384f;
+    padding: 15px 10px;
+    border-bottom: 1px solid #f0edf4;
+}
+
+/* Alignement de la colonne Montant */
+.tableau-traitement-vente th:last-child,
+.tableau-traitement-vente td:last-child {
+    text-align: right;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Survol des lignes */
+.tableau-traitement-vente tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.tableau-traitement-vente tbody tr:hover {
+    background-color: #faf9fc;
+}
+
+/* Sessions de caisse */
+.tableau-traitement-vente .bat-y {
+    background-color: #faf9fc;
+    border: 1px solid #eeeaf3;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+}
+
+.tableau-traitement-vente .bat-y h2 {
+    color: #302746;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 14px;
+}
+
+.tableau-traitement-vente .bat-y p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: #554c65;
+    font-size: 13px;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9e5ef;
+}
+
+.tableau-traitement-vente .bat-y p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Lien Terminal POS */
+.tableau-traitement-vente .card-traitement-vente {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.tableau-traitement-vente .card-traitement-vente a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #6c4ccf;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tableau-traitement-vente .card-traitement-vente a:hover {
+    color: #49309c;
+    text-decoration: underline;
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 480px) {
+    .traiter-vente {
+        padding: 16px;
+    }
+
+    .traiter-vente .h2 h2 {
+        font-size: 19px;
+    }
+
+    .tableau-traitement-vente th,
+    .tableau-traitement-vente td {
+        padding: 11px 6px;
+        font-size: 12px;
+    }
+
+    .tableau-traitement-vente .bat-y {
+        padding: 12px;
+    }
+}
+
