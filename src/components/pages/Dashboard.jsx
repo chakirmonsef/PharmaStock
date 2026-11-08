@@ -1,296 +1,253 @@
-import Card from "../common/StateCard"
+﻿import { Link } from 'react-router-dom';
 import {
-    Archive,
-    TriangleAlert,
-    ClockFading,
-    ShoppingCart,
-    Plus
- } from "lucide-react"
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import {
+  Archive,
+  ArrowRight,
+  BellRing,
+  Clock3,
+  Package,
+  Plus,
+  ShoppingCart,
+  TrendingUp,
+  TriangleAlert,
+} from 'lucide-react';
+import Card from '../common/StateCard';
+import './Dashboard.css';
 
-function Dashboard(){
-    return (
-        <main className="dashboard-page">
-            <h1>Tableau de bord</h1>
-           
-            <div className="card-container">
-                <Card titre="Total SKUs" valeur="210" description="+4 ce mois" icone={<Archive size={24}/>} variant="blue"/>
-                <Card titre="Stock Faible" valeur="14" description="Réappro. requis" icone={<TriangleAlert size={24}/>} variant="red"/>
-                <Card titre="Lots Expirés" valeur="5" description="Prêt quarantaine" icone={<ClockFading size={24}/>} variant="gray"/>
-                <Card titre="Nouveaux Achats" valeur="8" description="brouillon / confirmé" icone={<ShoppingCart size={24}/>} variant="teal"/>
-            </div>
-        
+const trend = [
+  { day: 'Lun', sales: 4200 },
+  { day: 'Mar', sales: 5600 },
+  { day: 'Mer', sales: 4900 },
+  { day: 'Jeu', sales: 7100 },
+  { day: 'Ven', sales: 6300 },
+  { day: 'Sam', sales: 8900 },
+  { day: 'Dim', sales: 6800 },
+];
+const fmt = (n) => `${n.toLocaleString('fr-MA')} MAD`;
+
+export default function Dashboard() {
+  return (
+    <main className="dashboard-page">
+      <div className="page-heading">
         <div>
-                    <div className="Card">
-                        <div className="card-alert">
-                            <div className="len-tete">
-                                <h3>Alertes de Stock Critique</h3>
-                                <h6>Action requise</h6>
-                            </div>
-                            <div className="Tableau-medicament">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Médicament</th>
-                                            <th>Lot ID</th>
-                                            <th>Expiration</th>
-                                            <th>Stock</th>
-                                            <th>FEFO</th>
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Analgésiques</td>
-                                            <td>A00300</td>
-                                            <td><span className="badge-urgent">urgent</span></td>
-                                            <td>25</td>
-                                            <td><span className="badge-fefo">1er</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Antibiotiques</td>
-                                            <td>B02701</td>
-                                            <td><span className="badge-urgent">urgent</span></td>
-                                            <td>46</td>
-                                            <td><span className="badge-fefo">2e</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Ibuprofène</td>
-                                            <td>B02702</td>
-                                            <td><span className="badge-urgent">urgent</span></td>
-                                            <td>16</td>
-                                            <td><span className="badge-fefo">3e</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Ibuprofène</td>
-                                            <td>B02704</td>
-                                            <td><span className="badge-urgent">urgent</span></td>
-                                            <td>15</td>
-                                            <td><span className="badge-fefo">4e</span></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Suppléments</td>
-                                            <td>B01705</td>
-                                            <td><span className="badge-urgent">urgent</span></td>
-                                            <td>10</td>
-                                            <td><span className="badge-fefo">5e</span></td>
-                                        </tr>
-
-                                    </tbody>
-                                    
-                                </table>
-
-                                <div className="card-alert-link">
-                                    <a href="">Réapprovisionner</a>
-                                    <a href="">Vérifier la séquence FEFO</a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div className="card-fofe">
-
-                            <div className="head">
-                                <h3>File d'attente FEFO</h3>
-                                <select>
-                                    <option value="Amoxicilline">Amoxicilline</option>
-                                    <option value="Ibuprofene">Ibuprofene</option>
-                                    <option value="paracetamol">paracetamol</option>
-                                </select>
-
-                            </div>
-
-                            <div className="Tableau-fefo">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Lot ID</th>
-                                            <th>Délai exp.</th>
-                                            <th>Logique</th>
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>B0101</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div>
-                                            </td>
-                                            <td>0</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>B0102</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div></td>
-                                            <td>0</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>B0104</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div></td>
-                                            <td>0</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>B0205</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div></td>
-                                            <td>0</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>B0149</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div></td>
-                                            <td>0</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>B0110</td>
-                                            <td><div className="fefo-barre-fond"> <div className="fefo-barre-remplie">   </div> </div></td>
-                                            <td>0</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
-                                <div className="link-card-fefo">
-                                    <p>Règle : FEFO Stricte</p>
-                                    <a href="http://">Configurer</a>
-                                </div>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                        <div className="traiter-vente">
-                            <div className="h2">
-                                <h2>Traiter une Vente</h2>
-                            </div>
-                                
-                            
-                            <button className="nouvelle-vente">
-                                <Plus size={18}/>
-                                Nouvelle Vente
-                            </button>
-
-                            <div className="tableau-traitement-vente">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Ventes Récentes</th>
-                                            <th>Montant</th>
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ibuprofène 1</td>
-                                            <td>1 267,00 $</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Ibuprofène 1</td>
-                                            <td>1 267,00 $</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Ibuprofène 1</td>
-                                            <td>1 267,00 $</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Ibuprofène 1</td>
-                                            <td>1 267,00 $</td>
-                                        </tr>
-
-                                        
-                                    </tbody>
-
-                                    
-                                </table>
-
-                                        <div className="bat-y">
-                                            <h2>Sessions de Caisse Ouvertes</h2>
-                                            <p>Caisse A Ouverte 0,00 $</p>
-                                            <p>Caisse A Ouverte 0,00 $</p>
-                                        </div>
-
-                                        <div className="card-traitement-vente">
-                                            <a href="">Terminal POS →</a>
-                                        </div>
-
-
-                            </div>
-
-
-
-
-                            </div>
-
-                            
-
-                            
-
-                    </div>
-
-                    <div className="card-Commandes">
-                        <div className="tit">
-                            <h3>Pipeline des Commandes d'Achat</h3>
-                            <h4>Commandes Actives</h4>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Commande</th>
-                                    <th>Statut</th>
-                                    <th>Tendance Valeur</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bon de commande 1</td>
-                                    <td>Brouillon</td>
-                                    <td></td>
-                                    <td>1 836,00 $</td>
-                                </tr>
-                                <tr>
-                                    <td>Bon de commande 2</td>
-                                    <td>Confirmé</td>
-                                    <td></td>
-                                    <td>1 836,00 $</td>
-                                </tr>
-                                <tr>
-                                    <td>Bon de commande 3</td>
-                                    <td>Reçu</td>
-                                    <td></td>
-                                    <td>1 836,00 $</td>
-                                </tr>
-                                <tr>
-                                    <td>Bon de commande 4</td>
-                                    <td>Annulé</td>
-                                    <td></td>
-                                    <td>1 836,00 $</td>
-                                </tr>
-                                
-                                
-                            </tbody>
-
-                           
-                        </table>
-                                <div>
-                                    <a href="http://">Créer une nouvelle commande →</a>
-                                </div>
-
-                    </div>
-        
-        </div>   
-        
-        </main>
-    );
+          <h1>
+            Bonjour Sarah <span className="wave">✦</span>
+          </h1>
+          <p>Voici le résumé de votre officine pour aujourd'hui, dimanche 8 novembre.</p>
+        </div>
+        <Link className="date-pill" to="/reports">
+          <Clock3 size={15} /> Cette semaine
+        </Link>
+      </div>
+      <div className="card-container">
+        <Card
+          titre="RÉFÉRENCES EN STOCK"
+          valeur="1 482"
+          description="12 nouvelles ce mois"
+          icone={<Archive size={19} />}
+          variant="blue"
+        />
+        <Card
+          titre="STOCK FAIBLE"
+          valeur="14"
+          description="À réapprovisionner"
+          icone={<TriangleAlert size={19} />}
+          variant="red"
+        />
+        <Card
+          titre="LOTS À SURVEILLER"
+          valeur="8"
+          description="Expiration sous 30 jours"
+          icone={<Clock3 size={19} />}
+          variant="gray"
+        />
+        <Card
+          titre="VENTES DU JOUR"
+          valeur="6 840 MAD"
+          description="+12 % vs. hier"
+          icone={<TrendingUp size={19} />}
+          variant="teal"
+        />
+      </div>
+      <div className="dashboard-overview">
+        <section className="panel dashboard-chart">
+          <div className="panel-heading">
+            <div>
+              <h2>Activité des ventes</h2>
+              <p className="panel-subtitle">Chiffre d'affaires · 7 derniers jours</p>
+            </div>
+            <Link className="mini-link" to="/reports">
+              Voir le rapport <ArrowRight size={13} />
+            </Link>
+          </div>
+          <div className="dashboard-chart-box">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={trend} margin={{ top: 8, right: 10, left: -22, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="dashSales" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#087f70" stopOpacity={0.18} />
+                    <stop offset="95%" stopColor="#087f70" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid stroke="#edf1f0" vertical={false} />
+                <XAxis
+                  dataKey="day"
+                  tickLine={false}
+                  axisLine={false}
+                  tick={{ fontSize: 10, fill: '#849196' }}
+                />
+                <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 9, fill: '#849196' }} />
+                <Tooltip formatter={(v) => fmt(v)} />
+                <Area
+                  type="monotone"
+                  dataKey="sales"
+                  name="Ventes"
+                  stroke="#087f70"
+                  strokeWidth={2.5}
+                  fill="url(#dashSales)"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+        <section className="panel quick-panel">
+          <div className="panel-heading">
+            <div>
+              <h2>Raccourcis</h2>
+              <p className="panel-subtitle">Accès rapide aux opérations</p>
+            </div>
+          </div>
+          <Link className="quick-action" to="/sales">
+            <span>
+              <ShoppingCart size={17} />
+            </span>
+            <div>
+              <strong>Nouvelle vente</strong>
+              <small>Ouvrir le point de vente</small>
+            </div>
+            <ArrowRight size={15} />
+          </Link>
+          <Link className="quick-action" to="/medicines">
+            <span>
+              <Plus size={17} />
+            </span>
+            <div>
+              <strong>Ajouter un produit</strong>
+              <small>Mettre à jour le catalogue</small>
+            </div>
+            <ArrowRight size={15} />
+          </Link>
+          <Link className="quick-action" to="/purchases">
+            <span>
+              <Package size={17} />
+            </span>
+            <div>
+              <strong>Créer une commande</strong>
+              <small>Réapprovisionner le stock</small>
+            </div>
+            <ArrowRight size={15} />
+          </Link>
+          <Link className="quick-action" to="/alerts">
+            <span>
+              <BellRing size={17} />
+            </span>
+            <div>
+              <strong>Voir les alertes</strong>
+              <small>22 éléments à vérifier</small>
+            </div>
+            <ArrowRight size={15} />
+          </Link>
+        </section>
+      </div>
+      <div className="dashboard-bottom">
+        <section className="panel dashboard-alerts">
+          <div className="panel-heading">
+            <div>
+              <h2>Alertes à traiter</h2>
+              <p className="panel-subtitle">Produits nécessitant une attention</p>
+            </div>
+            <Link className="mini-link" to="/alerts">
+              Tout voir <ArrowRight size={13} />
+            </Link>
+          </div>
+          <div className="dashboard-alert-row">
+            <span className="alert-icon red">
+              <TriangleAlert size={16} />
+            </span>
+            <div>
+              <strong>Oméprazole 20 mg</strong>
+              <small>18 unités restantes · seuil minimum : 25</small>
+            </div>
+            <Link to="/purchases">Commander</Link>
+          </div>
+          <div className="dashboard-alert-row">
+            <span className="alert-icon orange">
+              <Clock3 size={16} />
+            </span>
+            <div>
+              <strong>Amoxicilline 500 mg</strong>
+              <small>Lot LOT-26081 · expire dans 13 jours</small>
+            </div>
+            <Link to="/stock">Voir le lot</Link>
+          </div>
+          <div className="dashboard-alert-row">
+            <span className="alert-icon orange">
+              <TriangleAlert size={16} />
+            </span>
+            <div>
+              <strong>Paracétamol 1 g</strong>
+              <small>34 unités restantes · seuil minimum : 50</small>
+            </div>
+            <Link to="/purchases">Commander</Link>
+          </div>
+        </section>
+        <section className="panel dashboard-recent">
+          <div className="panel-heading">
+            <div>
+              <h2>Ventes récentes</h2>
+              <p className="panel-subtitle">Dernières transactions enregistrées</p>
+            </div>
+            <Link className="mini-link" to="/sales">
+              Historique <ArrowRight size={13} />
+            </Link>
+          </div>
+          <div className="recent-sale">
+            <span className="sale-avatar">AM</span>
+            <div>
+              <strong>Amoxicilline 500 mg</strong>
+              <small>Vente #V-2086 · 10:42</small>
+            </div>
+            <b>{fmt(126)}</b>
+          </div>
+          <div className="recent-sale">
+            <span className="sale-avatar blue">PC</span>
+            <div>
+              <strong>Paracétamol Extra</strong>
+              <small>Vente #V-2085 · 10:18</small>
+            </div>
+            <b>{fmt(74)}</b>
+          </div>
+          <div className="recent-sale">
+            <span className="sale-avatar orange">VC</span>
+            <div>
+              <strong>Vitamine C Ascorbate</strong>
+              <small>Vente #V-2084 · 09:56</small>
+            </div>
+            <b>{fmt(108)}</b>
+          </div>
+          <Link className="pos-link" to="/sales">
+            Ouvrir le point de vente <ArrowRight size={14} />
+          </Link>
+        </section>
+      </div>
+    </main>
+  );
 }
-
-export default Dashboard;

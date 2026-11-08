@@ -1,0 +1,232 @@
+﻿:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ink: #e5eeeb;
+  --muted: #9aa9a5;
+  --line: #2a3c37;
+  --green: #45b89c;
+  --green-soft: #203b34;
+  --orange: #e0a45f;
+  --red: #e17a70;
+  background: #111a18;
+  color: #dce7e3;
+}
+:root[data-theme='dark'] body {
+  background: #111a18;
+  color: #dce7e3;
+}
+:root[data-theme='dark'] .sidebar,
+:root[data-theme='dark'] .header-bar,
+:root[data-theme='dark'] .card,
+:root[data-theme='dark'] .panel,
+:root[data-theme='dark'] .card-alert,
+:root[data-theme='dark'] .card-fofe,
+:root[data-theme='dark'] .traiter-vente,
+:root[data-theme='dark'] .card-Commandes,
+:root[data-theme='dark'] .catalogue,
+:root[data-theme='dark'] .workspace-panel,
+:root[data-theme='dark'] .workspace-stat,
+:root[data-theme='dark'] .alert-list,
+:root[data-theme='dark'] .settings-nav,
+:root[data-theme='dark'] .settings-panel,
+:root[data-theme='dark'] .generic-card {
+  background: #192522;
+  border-color: var(--line);
+  color: #dce7e3;
+}
+:root[data-theme='dark'] .main-content {
+  background: #111a18;
+}
+:root[data-theme='dark'] .header-bar {
+  background: rgba(25, 37, 34, 0.96);
+}
+:root[data-theme='dark'] .search-box,
+:root[data-theme='dark'] .bar-search,
+:root[data-theme='dark'] .Filtre-categorie,
+:root[data-theme='dark'] .Etat-stock,
+:root[data-theme='dark'] .search-filtre select,
+:root[data-theme='dark'] .head select,
+:root[data-theme='dark'] .filter-select,
+:root[data-theme='dark'] .report-toolbar select,
+:root[data-theme='dark'] .workspace-search,
+:root[data-theme='dark'] .form-field input,
+:root[data-theme='dark'] .form-field select,
+:root[data-theme='dark'] .modal-body input,
+:root[data-theme='dark'] .modal-body select,
+:root[data-theme='dark'] .cart-payment select,
+:root[data-theme='dark'] .settings-options select,
+:root[data-theme='dark'] .number-setting {
+  background: #202e2a;
+  border-color: #344741;
+  color: #dce7e3;
+}
+:root[data-theme='dark'] .search-box input,
+:root[data-theme='dark'] .bar-search input,
+:root[data-theme='dark'] .workspace-search input,
+:root[data-theme='dark'] input {
+  color: #e2ece8;
+}
+:root[data-theme='dark'] .search-box input::placeholder,
+:root[data-theme='dark'] input::placeholder {
+  color: #82928d;
+}
+:root[data-theme='dark'] .sidebar-link {
+  color: #a1b0ab;
+}
+:root[data-theme='dark'] .sidebar-link:hover,
+:root[data-theme='dark'] .sidebar-link.active,
+:root[data-theme='dark'] .settings-tab.selected {
+  background: #203c34;
+  color: #6ed0b2;
+}
+:root[data-theme='dark'] .sidebar-foot,
+:root[data-theme='dark'] .bat-y,
+:root[data-theme='dark'] .quick-action:hover {
+  background: #202e2a;
+}
+:root[data-theme='dark'] .sidebar-foot strong,
+:root[data-theme='dark'] .brand h1,
+:root[data-theme='dark'] .card-header h3,
+:root[data-theme='dark'] .card-value,
+:root[data-theme='dark'] .workspace-stat strong,
+:root[data-theme='dark'] .section-heading h2,
+:root[data-theme='dark'] .panel h2,
+:root[data-theme='dark'] .panel h3,
+:root[data-theme='dark'] .len-tete h3,
+:root[data-theme='dark'] .head h3,
+:root[data-theme='dark'] .titre h2,
+:root[data-theme='dark'] .modal-header h2,
+:root[data-theme='dark'] .workspace-modal > header h2,
+:root[data-theme='dark'] .settings-options strong,
+:root[data-theme='dark'] .alert-copy h3,
+:root[data-theme='dark'] .quick-action strong,
+:root[data-theme='dark'] .recent-sale strong,
+:root[data-theme='dark'] .dashboard-alert-row strong,
+:root[data-theme='dark'] .card-Commandes .tit h3 {
+  color: #e0eae6;
+}
+:root[data-theme='dark'] .card-description,
+:root[data-theme='dark'] .page-heading p,
+:root[data-theme='dark'] .section-heading p,
+:root[data-theme='dark'] .panel-subtitle,
+:root[data-theme='dark'] .workspace-stat small,
+:root[data-theme='dark'] .stat-label,
+:root[data-theme='dark'] .titre p,
+:root[data-theme='dark'] .table-main small,
+:root[data-theme='dark'] .settings-options small,
+:root[data-theme='dark'] .alert-copy p,
+:root[data-theme='dark'] .recent-sale small,
+:root[data-theme='dark'] .dashboard-alert-row small {
+  color: #9aa9a5;
+}
+:root[data-theme='dark'] .workspace-table th,
+:root[data-theme='dark'] .stock-table th,
+:root[data-theme='dark'] .Tableau-medicament th,
+:root[data-theme='dark'] .Tableau-fefo th,
+:root[data-theme='dark'] .card-Commandes th,
+:root[data-theme='dark'] .tableau-traitement-vente th {
+  background: #202e2a;
+  color: #aab8b3;
+  border-color: #344741;
+}
+:root[data-theme='dark'] .workspace-table td,
+:root[data-theme='dark'] .stock-table td,
+:root[data-theme='dark'] .Tableau-medicament td,
+:root[data-theme='dark'] .Tableau-fefo td,
+:root[data-theme='dark'] .card-Commandes td,
+:root[data-theme='dark'] .tableau-traitement-vente td {
+  color: #c0cdc8;
+  border-color: #2a3c37;
+}
+:root[data-theme='dark'] .workspace-table tbody tr:hover,
+:root[data-theme='dark'] .stock-table tbody tr:hover {
+  background: #202e2a;
+}
+:root[data-theme='dark'] .date-pill,
+:root[data-theme='dark'] .pharmacist-button,
+:root[data-theme='dark'] .quiet-button,
+:root[data-theme='dark'] .secondary-button,
+:root[data-theme='dark'] .filter-chip,
+:root[data-theme='dark'] .pos-product {
+  background: #192522;
+  border-color: #344741;
+  color: #c7d3ce;
+}
+:root[data-theme='dark'] .pos-product:hover {
+  background: #20352e;
+  border-color: #456b60;
+}
+:root[data-theme='dark'] .pos-product strong,
+:root[data-theme='dark'] .cart-line strong,
+:root[data-theme='dark'] .cart-line > b,
+:root[data-theme='dark'] .cart-total strong,
+:root[data-theme='dark'] .produit strong,
+:root[data-theme='dark'] .user-cell strong {
+  color: #e0eae6;
+}
+:root[data-theme='dark'] .cart-line,
+:root[data-theme='dark'] .settings-options > label,
+:root[data-theme='dark'] .recent-sale,
+:root[data-theme='dark'] .dashboard-alert-row,
+:root[data-theme='dark'] .quick-action {
+  border-color: #2a3c37;
+}
+:root[data-theme='dark'] .workspace-modal,
+:root[data-theme='dark'] .medicament-modal {
+  background: #192522;
+  color: #dce7e3;
+}
+:root[data-theme='dark'] .workspace-modal > header,
+:root[data-theme='dark'] .workspace-modal > footer,
+:root[data-theme='dark'] .modal-header,
+:root[data-theme='dark'] .modal-footer {
+  border-color: #2a3c37;
+}
+:root[data-theme='dark'] .modal-header {
+  background: #202e2a;
+}
+:root[data-theme='dark'] .bouton-annuler {
+  background: #2a3b36;
+  color: #c2d0ca;
+}
+:root[data-theme='dark'] .logout {
+  color: #a5b3ae;
+}
+:root[data-theme='dark'] .tableau-traitement-vente .bat-y {
+  background: #202e2a;
+  border-color: #344741;
+}
+:root[data-theme='dark'] .sidebar-link.active {
+  box-shadow: inset 3px 0 #45b89c;
+}
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: transparent;
+  color: #687b7f;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.theme-toggle:hover {
+  background: #eaf5f2;
+  color: var(--green);
+}
+:root[data-theme='dark'] .theme-toggle {
+  border-color: #344741;
+  color: #efc877;
+}
+:root[data-theme='dark'] .theme-toggle:hover {
+  background: #2d3c32;
+  color: #ffdc8b;
+}
+@media (max-width: 720px) {
+  .theme-toggle {
+    width: 33px;
+    height: 33px;
+  }
+}

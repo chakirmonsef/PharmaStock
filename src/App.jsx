@@ -1,25 +1,32 @@
-import { BrowserRouter } from "react-router-dom";
-import Sidebar from "./layout/sidebar";
-import Header from "./layout/Header";
-import "./App.css";
-import AppRoutes from "./routes/AppRoutes";
-
+﻿import { BrowserRouter } from 'react-router-dom';
+import Sidebar from './layout/sidebar';
+import Header from './layout/header';
+import './styles/app.css';
+import './styles/theme.css';
+import './styles/professional.css';
+import AppRoutes from './routes/AppRoutes';
+import { useEffect, useState } from 'react';
 
 function App() {
-  return(
+  const [theme, setTheme] = useState(() => localStorage.getItem('pharmastock-theme') || 'light');
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('pharmastock-theme', theme);
+  }, [theme]);
+  return (
     <BrowserRouter>
-    <div className="app-layout">
-        <Sidebar/>
+      <div className="app-layout">
+        <Sidebar />
 
-        <div className="main-content"> 
-          <Header/>
-          <AppRoutes/>
+        <div className="main-content">
+          <Header
+            theme={theme}
+            onToggleTheme={() => setTheme((current) => (current === 'light' ? 'dark' : 'light'))}
+          />
+          <AppRoutes />
         </div>
-      
-
-
-    </div>
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 export default App;

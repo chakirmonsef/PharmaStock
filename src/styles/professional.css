@@ -1,0 +1,526 @@
+:root {
+  --app-bg: #f3f6f8;
+  --surface: #ffffff;
+  --surface-muted: #f7f9fa;
+  --surface-hover: #eef5f3;
+  --ink: #172a32;
+  --muted: #65767d;
+  --muted-soft: #8b999e;
+  --line: #e3e9ec;
+  --green: #087f70;
+  --green-strong: #06685e;
+  --green-soft: #e8f4f1;
+  --orange: #b9782c;
+  --red: #c25650;
+  --shadow-card: 0 2px 8px rgb(24 43 50 / 4%), 0 10px 28px rgb(24 43 50 / 3%);
+  --shadow-popover: 0 18px 50px rgb(12 30 34 / 18%);
+  --radius-card: 14px;
+  --radius-control: 9px;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --app-bg: #111918;
+  --surface: #192421;
+  --surface-muted: #202d29;
+  --surface-hover: #263a34;
+  --ink: #e4ece9;
+  --muted: #a2b0ab;
+  --muted-soft: #82928c;
+  --line: #2c3b37;
+  --green: #53b99e;
+  --green-strong: #72d0b3;
+  --green-soft: #203b34;
+  --orange: #e6ad68;
+  --red: #e07e75;
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 14%), 0 12px 30px rgb(0 0 0 / 10%);
+  --shadow-popover: 0 18px 50px rgb(0 0 0 / 42%);
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body,
+.main-content {
+  background: var(--app-bg);
+  color: var(--ink);
+}
+
+button,
+input,
+select {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--green) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.sidebar,
+.header-bar {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.sidebar {
+  width: 258px;
+  padding: 26px 18px 20px;
+  gap: 23px;
+}
+
+.sidebar-link {
+  min-height: 42px;
+  border-radius: 10px;
+  color: var(--muted);
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.sidebar-link:hover {
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+.sidebar-link.active {
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+.sidebar-foot {
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+.sidebar-foot strong,
+.brand h1 {
+  color: var(--ink);
+}
+
+.header-bar {
+  height: 72px;
+  padding-inline: clamp(18px, 3vw, 42px);
+  box-shadow: 0 1px 0 rgb(15 37 43 / 2%);
+}
+
+.search-box,
+.workspace-search,
+.bar-search,
+.Filtre-categorie,
+.Etat-stock {
+  background: var(--surface-muted);
+  border-color: var(--line);
+}
+
+.search-box input,
+.workspace-search input,
+.bar-search input,
+.filter-select,
+.report-toolbar select,
+.Filtre-categorie select,
+.Etat-stock select {
+  color: var(--ink);
+}
+
+.search-box input::placeholder,
+.workspace-search input::placeholder,
+.bar-search input::placeholder {
+  color: var(--muted-soft);
+}
+
+.card,
+.panel,
+.card-alert,
+.card-fofe,
+.traiter-vente,
+.card-Commandes,
+.catalogue,
+.workspace-panel,
+.workspace-stat,
+.alert-list,
+.settings-nav,
+.settings-panel,
+.generic-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.card {
+  min-height: 142px;
+}
+
+.card-value,
+.page-heading h1,
+.dashboard-page .page-heading h1,
+.panel h2,
+.section-heading h2,
+.titre h2,
+.modal-header h2,
+.workspace-modal > header h2 {
+  color: var(--ink);
+}
+
+.card-header h3,
+.panel-subtitle,
+.page-heading p,
+.section-heading p,
+.titre p,
+.card-description {
+  color: var(--muted);
+}
+
+.page-heading {
+  margin-bottom: 22px;
+}
+
+.page-heading h1,
+.dashboard-page .page-heading h1 {
+  font-size: clamp(21px, 2vw, 26px);
+  letter-spacing: -0.7px;
+}
+
+.page-heading p {
+  line-height: 1.55;
+}
+
+.workspace-stat,
+.workspace-panel {
+  box-shadow: var(--shadow-card);
+}
+
+.workspace-stat {
+  padding: 17px;
+}
+
+.workspace-stat strong {
+  color: var(--ink);
+}
+
+.workspace-panel {
+  padding: 21px;
+}
+
+.workspace-table th,
+.stock-table th,
+.Tableau-medicament th,
+.Tableau-fefo th,
+.card-Commandes th,
+.tableau-traitement-vente th {
+  background: var(--surface-muted);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.workspace-table td,
+.stock-table td,
+.Tableau-medicament td,
+.Tableau-fefo td,
+.card-Commandes td,
+.tableau-traitement-vente td {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.workspace-table tbody tr:hover,
+.stock-table tbody tr:hover {
+  background: var(--surface-muted);
+}
+
+.primary-button,
+.bouton-enregistrer,
+.nouvelle-vente,
+.checkout-button {
+  background: var(--green);
+  border-radius: var(--radius-control);
+  transition:
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.primary-button:hover,
+.bouton-enregistrer:hover,
+.nouvelle-vente:hover,
+.checkout-button:not(:disabled):hover {
+  background: var(--green-strong);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--green) 20%, transparent);
+  transform: translateY(-1px);
+}
+
+.secondary-button,
+.quiet-button,
+.date-pill,
+.pharmacist-button,
+.filter-chip {
+  background: var(--surface);
+  border-color: var(--line);
+  border-radius: var(--radius-control);
+  color: var(--muted);
+}
+
+.secondary-button:hover,
+.quiet-button:hover,
+.date-pill:hover,
+.pharmacist-button:hover,
+.filter-chip:hover {
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+.workspace-modal,
+.medicament-modal {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-popover);
+}
+
+.workspace-modal > header,
+.workspace-modal > footer,
+.modal-header,
+.modal-footer {
+  border-color: var(--line);
+}
+
+.modal-header {
+  background: var(--surface-muted);
+}
+
+.form-field input,
+.form-field select,
+.modal-body input,
+.modal-body select,
+.cart-payment select,
+.settings-options select,
+.number-setting {
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  color: var(--ink);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.modal-body input:focus,
+.modal-body select:focus {
+  border-color: var(--green);
+  outline: 3px solid color-mix(in srgb, var(--green) 14%, transparent);
+}
+
+.pos-product {
+  background: var(--surface);
+  border-color: var(--line);
+  border-radius: 12px;
+}
+
+.pos-product:hover {
+  border-color: color-mix(in srgb, var(--green) 45%, var(--line));
+  box-shadow: var(--shadow-card);
+}
+
+.quick-action,
+.recent-sale,
+.dashboard-alert-row,
+.cart-line,
+.settings-options > label {
+  border-color: var(--line);
+}
+
+.quick-action strong,
+.recent-sale strong,
+.dashboard-alert-row strong,
+.pos-product strong,
+.cart-line strong {
+  color: var(--ink);
+}
+
+.quick-action small,
+.recent-sale small,
+.dashboard-alert-row small {
+  color: var(--muted);
+}
+
+.quick-action:hover .quick-action > span,
+.pos-link {
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+.settings-tab {
+  border-radius: 9px;
+  color: var(--muted);
+}
+
+.settings-tab.selected {
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+.status-badge,
+.categorie,
+.stock-badge,
+.badge-urgent,
+.badge-fefo {
+  font-weight: 600;
+}
+
+.theme-toggle {
+  border-color: var(--line);
+  border-radius: var(--radius-control);
+  color: var(--muted);
+}
+
+.theme-toggle:hover {
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+:root[data-theme='dark'] .workspace-table th,
+:root[data-theme='dark'] .stock-table th,
+:root[data-theme='dark'] .Tableau-medicament th,
+:root[data-theme='dark'] .Tableau-fefo th,
+:root[data-theme='dark'] .card-Commandes th,
+:root[data-theme='dark'] .tableau-traitement-vente th {
+  background: var(--surface-muted);
+  color: var(--muted);
+}
+
+:root[data-theme='dark'] .workspace-table td,
+:root[data-theme='dark'] .stock-table td,
+:root[data-theme='dark'] .Tableau-medicament td,
+:root[data-theme='dark'] .Tableau-fefo td,
+:root[data-theme='dark'] .card-Commandes td,
+:root[data-theme='dark'] .tableau-traitement-vente td {
+  color: var(--muted);
+}
+
+:root[data-theme='dark'] .workspace-table tbody tr:hover,
+:root[data-theme='dark'] .stock-table tbody tr:hover {
+  background: var(--surface-muted);
+}
+
+:root[data-theme='dark'] .sidebar,
+:root[data-theme='dark'] .header-bar,
+:root[data-theme='dark'] .card,
+:root[data-theme='dark'] .panel,
+:root[data-theme='dark'] .workspace-panel,
+:root[data-theme='dark'] .workspace-stat,
+:root[data-theme='dark'] .catalogue,
+:root[data-theme='dark'] .settings-nav,
+:root[data-theme='dark'] .settings-panel,
+:root[data-theme='dark'] .alert-list,
+:root[data-theme='dark'] .pos-product,
+:root[data-theme='dark'] .workspace-modal,
+:root[data-theme='dark'] .medicament-modal {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+:root[data-theme='dark'] .search-box,
+:root[data-theme='dark'] .workspace-search,
+:root[data-theme='dark'] .bar-search,
+:root[data-theme='dark'] .Filtre-categorie,
+:root[data-theme='dark'] .Etat-stock,
+:root[data-theme='dark'] .form-field input,
+:root[data-theme='dark'] .form-field select,
+:root[data-theme='dark'] .modal-body input,
+:root[data-theme='dark'] .modal-body select,
+:root[data-theme='dark'] .cart-payment select,
+:root[data-theme='dark'] .settings-options select,
+:root[data-theme='dark'] .number-setting {
+  background: var(--surface-muted);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+:root[data-theme='dark'] .search-box input,
+:root[data-theme='dark'] .workspace-search input,
+:root[data-theme='dark'] .bar-search input {
+  color: var(--ink);
+}
+
+:root[data-theme='dark'] .search-box input::placeholder,
+:root[data-theme='dark'] input::placeholder {
+  color: var(--muted-soft);
+}
+
+:root[data-theme='dark'] .brand h1,
+:root[data-theme='dark'] .sidebar-foot strong,
+:root[data-theme='dark'] .card-value,
+:root[data-theme='dark'] .workspace-stat strong,
+:root[data-theme='dark'] .page-heading h1,
+:root[data-theme='dark'] .dashboard-page .page-heading h1,
+:root[data-theme='dark'] .panel h2,
+:root[data-theme='dark'] .section-heading h2,
+:root[data-theme='dark'] .titre h2,
+:root[data-theme='dark'] .pos-product strong,
+:root[data-theme='dark'] .cart-line strong,
+:root[data-theme='dark'] .recent-sale strong,
+:root[data-theme='dark'] .dashboard-alert-row strong {
+  color: var(--ink);
+}
+
+:root[data-theme='dark'] .page-heading p,
+:root[data-theme='dark'] .section-heading p,
+:root[data-theme='dark'] .card-description,
+:root[data-theme='dark'] .panel-subtitle,
+:root[data-theme='dark'] .workspace-stat small,
+:root[data-theme='dark'] .recent-sale small,
+:root[data-theme='dark'] .dashboard-alert-row small,
+:root[data-theme='dark'] .sidebar-foot {
+  color: var(--muted);
+}
+
+:root[data-theme='dark'] .sidebar-link {
+  color: var(--muted);
+}
+
+:root[data-theme='dark'] .sidebar-link:hover {
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+:root[data-theme='dark'] .sidebar-link.active,
+:root[data-theme='dark'] .settings-tab.selected,
+:root[data-theme='dark'] .pos-link {
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+:root[data-theme='dark'] .sidebar-foot,
+:root[data-theme='dark'] .bat-y,
+:root[data-theme='dark'] .modal-header {
+  background: var(--surface-muted);
+}
+
+:root[data-theme='dark'] .secondary-button,
+:root[data-theme='dark'] .quiet-button,
+:root[data-theme='dark'] .date-pill,
+:root[data-theme='dark'] .pharmacist-button,
+:root[data-theme='dark'] .filter-chip {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    width: 68px;
+  }
+
+  .header-bar {
+    height: 64px;
+  }
+}

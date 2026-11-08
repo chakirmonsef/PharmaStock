@@ -1,5 +1,4 @@
-import { NavLink } from "react-router-dom";
-import "./Sidebar.css";
+﻿import { NavLink, Link } from 'react-router-dom';
 import {
   LayoutDashboard,
   Archive,
@@ -10,48 +9,56 @@ import {
   ShieldUser,
   LogOut,
   Calculator,
-} from "lucide-react";
-
+  Pill,
+  Building2,
+  Settings,
+} from 'lucide-react';
 
 const menuItems = [
-  { name: "Tableau de bord", path: "/", icon: LayoutDashboard },
-  { name: "Stock / Catalogue", path: "/medicines", icon: Archive },
-  { name: "Stocks & Lots FEFO", path: "/stock", icon: Hourglass },
-  { name: "Achats", path: "/purchases", icon: ShoppingCart },
-  { name: "Ventes POS", path: "/sales", icon: Calculator },
-  { name: "Alertes", path: "/alerts", icon: BellRing },
-  { name: "Rapports", path: "/reports", icon: ChartNoAxesColumn },
-  { name: "Administration", path: "/users", icon: ShieldUser },
+  { name: 'Tableau de bord', path: '/', icon: LayoutDashboard },
+  { name: 'Stock / Catalogue', path: '/medicines', icon: Archive },
+  { name: 'Stocks & Lots FEFO', path: '/stock', icon: Hourglass },
+  { name: 'Achats', path: '/purchases', icon: ShoppingCart },
+  { name: 'Ventes POS', path: '/sales', icon: Calculator },
+  { name: 'Alertes', path: '/alerts', icon: BellRing },
+  { name: 'Rapports', path: '/reports', icon: ChartNoAxesColumn },
+  { name: 'Administration', path: '/users', icon: ShieldUser },
+  { name: 'Fournisseurs', path: '/suppliers', icon: Building2 },
+  { name: 'Paramètres', path: '/settings', icon: Settings },
 ];
 
-
-
-function Sidebar() {
+export default function Sidebar() {
   return (
     <aside className="sidebar">
-      <h1>PharmaStock</h1>
-
+      <div className="brand">
+        <span className="brand-mark">
+          <Pill size={19} />
+        </span>
+        <h1>
+          Pharma<span>Stock</span>
+        </h1>
+      </div>
+      <p className="nav-label">ESPACE DE TRAVAIL</p>
       <nav>
-        {menuItems.map((item) => (
+        {menuItems.map(({ name, path, icon: Icon }) => (
           <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) =>
-              isActive ? "sidebar-link active" : "sidebar-link"
-            }
+            key={path}
+            to={path}
+            end={path === '/'}
+            className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
           >
-            <item.icon size={20} />
-            <span>{item.name}</span>
+            <Icon size={18} />
+            <span>{name}</span>
           </NavLink>
         ))}
       </nav>
-
-      <button className="logout">
-        <LogOut size={20} />
+      <div className="sidebar-foot">
+        <strong>PharmaStock Pro</strong>Gestion intelligente de votre officine
+      </div>
+      <Link className="logout" to="/">
+        <LogOut size={18} />
         Déconnexion
-      </button>
+      </Link>
     </aside>
   );
 }
-
-export default Sidebar;
