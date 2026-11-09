@@ -1,11 +1,13 @@
 ﻿import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import { Heading, Field } from '../common/PageUI';
 import '../common/workspaces.css';
 
 export default function SettingsPage() {
+  const [searchParams] = useSearchParams();
   const [saved, setSaved] = useState(false);
-  const [tab, setTab] = useState('Officine');
+  const [tab, setTab] = useState(searchParams.get('tab') === 'Compte' ? 'Compte' : 'Officine');
   const tabs = ['Officine', 'Stock & FEFO', 'Notifications', 'Compte'];
   return (
     <main className="workspace-page">

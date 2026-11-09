@@ -1,4 +1,5 @@
-﻿import { Search, ArrowLeftRight, Bell, User, Moon, Sun } from 'lucide-react';
+import { Search, ArrowLeftRight, Bell, User, Moon, Sun, Palette } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Header({ theme, onToggleTheme }) {
   return (
@@ -17,23 +18,23 @@ function Header({ theme, onToggleTheme }) {
         className="theme-toggle"
         type="button"
         onClick={onToggleTheme}
-        aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'}
-        title={theme === 'dark' ? 'Thème clair' : 'Thème sombre'}
+        aria-label={`Changer de thème (${theme === 'light' ? 'professionnel' : theme === 'professional' ? 'sombre' : 'clair'})`}
+        title={`Thème ${theme === 'light' ? 'clair' : theme === 'professional' ? 'professionnel' : 'sombre'}`}
       >
-        {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+        {theme === 'dark' ? <Sun size={17} /> : theme === 'professional' ? <Palette size={17} /> : <Moon size={17} />}
       </button>
 
       <button className="notification-button" aria-label="Notifications">
         <Bell />
       </button>
 
-      <button className="profile-button">
+      <Link className="profile-button" to="/settings?tab=Compte" aria-label="Ouvrir le profil">
         <div className="profile-info">
           <span>Sarah J.</span>
           <span>Pharmacien</span>
         </div>
         <User />
-      </button>
+      </Link>
     </header>
   );
 }

@@ -14,17 +14,30 @@ import {
   Settings,
 } from 'lucide-react';
 
-const menuItems = [
-  { name: 'Tableau de bord', path: '/', icon: LayoutDashboard },
-  { name: 'Stock / Catalogue', path: '/medicines', icon: Archive },
-  { name: 'Stocks & Lots FEFO', path: '/stock', icon: Hourglass },
-  { name: 'Achats', path: '/purchases', icon: ShoppingCart },
-  { name: 'Ventes POS', path: '/sales', icon: Calculator },
-  { name: 'Alertes', path: '/alerts', icon: BellRing },
-  { name: 'Rapports', path: '/reports', icon: ChartNoAxesColumn },
-  { name: 'Administration', path: '/users', icon: ShieldUser },
-  { name: 'Fournisseurs', path: '/suppliers', icon: Building2 },
-  { name: 'Paramètres', path: '/settings', icon: Settings },
+const menuGroups = [
+  {
+    label: 'VUE D’ENSEMBLE',
+    items: [{ name: 'Tableau de bord', path: '/', icon: LayoutDashboard }],
+  },
+  {
+    label: 'GESTION',
+    items: [
+      { name: 'Stock / Catalogue', path: '/medicines', icon: Archive },
+      { name: 'Stocks & Lots FEFO', path: '/stock', icon: Hourglass },
+      { name: 'Achats', path: '/purchases', icon: ShoppingCart },
+      { name: 'Ventes POS', path: '/sales', icon: Calculator },
+      { name: 'Alertes', path: '/alerts', icon: BellRing },
+      { name: 'Rapports', path: '/reports', icon: ChartNoAxesColumn },
+    ],
+  },
+  {
+    label: 'ESPACE',
+    items: [
+      { name: 'Administration', path: '/users', icon: ShieldUser },
+      { name: 'Fournisseurs', path: '/suppliers', icon: Building2 },
+      { name: 'Paramètres', path: '/settings', icon: Settings },
+    ],
+  },
 ];
 
 export default function Sidebar() {
@@ -38,22 +51,30 @@ export default function Sidebar() {
           Pharma<span>Stock</span>
         </h1>
       </div>
-      <p className="nav-label">ESPACE DE TRAVAIL</p>
       <nav>
-        {menuItems.map(({ name, path, icon: Icon }) => (
-          <NavLink
-            key={path}
-            to={path}
-            end={path === '/'}
-            className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
-          >
-            <Icon size={18} />
-            <span>{name}</span>
-          </NavLink>
+        {menuGroups.map(({ label, items }) => (
+          <div className="sidebar-group" key={label}>
+            <p className="nav-label">{label}</p>
+            {items.map(({ name, path, icon: Icon }) => (
+              <NavLink
+                key={path}
+                to={path}
+                end={path === '/'}
+                className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
+              >
+                <Icon size={18} />
+                <span>{name}</span>
+              </NavLink>
+            ))}
+          </div>
         ))}
       </nav>
       <div className="sidebar-foot">
-        <strong>PharmaStock Pro</strong>Gestion intelligente de votre officine
+        <span className="sidebar-status" aria-hidden="true" />
+        <div>
+          <strong>PharmaStock Pro</strong>
+          <span>Gestion de votre officine</span>
+        </div>
       </div>
       <Link className="logout" to="/">
         <LogOut size={18} />

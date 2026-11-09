@@ -21,7 +21,11 @@ function App() {
         <div className="main-content">
           <Header
             theme={theme}
-            onToggleTheme={() => setTheme((current) => (current === 'light' ? 'dark' : 'light'))}
+            onToggleTheme={() =>
+              setTheme((current) =>
+                current === 'light' ? 'professional' : current === 'professional' ? 'dark' : 'light',
+              )
+            }
           />
           <AppRoutes />
         </div>
